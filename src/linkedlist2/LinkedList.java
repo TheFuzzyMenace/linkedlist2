@@ -1,6 +1,7 @@
 package linkedlist2;
 
 /**
+ * Implements a doubly linked list.
  *
  * @author 55jphillip
  */
@@ -17,7 +18,24 @@ public class LinkedList {
     }
 
     public boolean isEmpty() {
+        System.out.println("isEmpty first is " + first + " length="+length);
         return (first == null);
+        //return (length == 0);
+    }
+
+    public void append(Friend data) {
+        Link newLink = new Link(data);
+        
+        System.out.println("list is " + this.toString());
+        if (isEmpty()) {
+            first = newLink;
+        } else {
+            newLink.next = null;
+            newLink.previous = last;
+            last.next = newLink;
+        }
+        last = newLink;
+        length++;
     }
 
     public void push(Friend data) {
@@ -27,15 +45,14 @@ public class LinkedList {
         } else {
             newLink.next = first;
             newLink.previous = null;
-            if (first != null) {
-                first.previous = newLink;
-            }
+            first.previous = newLink;
         }
         first = newLink;
         length++;
     }
 
     public Link pop() {
+        System.out.println("pop start: is empty is " + isEmpty() + " first is " + first);
         if (length > 0) {
             Link temp = first;
             first = first.next;
@@ -47,6 +64,7 @@ public class LinkedList {
             length--;
             return temp;
         }
+        System.out.println("pop end: is empty is " + isEmpty() + " first is " + first);
         return null;
     }
 
@@ -55,15 +73,18 @@ public class LinkedList {
     }
 
     public Link remove() {
+        System.out.println("remove start: is empty is " + isEmpty() + " first is " + first);
         if (length > 0) {
             Link temp = last;
             last = last.previous;
+            
             if (last != null) {
                 last.next = null;
-            }
+            } 
             length--;
             return temp;
         }
+        System.out.println("remove end: is empty is " + isEmpty() + " first is " + first);
         return null;
     }
 
@@ -84,7 +105,7 @@ public class LinkedList {
     public Link delete(int index) {
         Link current = first;
         Link prev = first;
-
+System.out.println("delete start: is empty is " + isEmpty() + " first is " + first);
         if (!isEmpty()) {
             int count = 0;
             while (count != index) {
@@ -114,6 +135,7 @@ public class LinkedList {
             }
             length--;
         }
+        System.out.println("delete end: is empty is " + isEmpty() + " first is " + first);
         return current;
     }
 
@@ -131,10 +153,11 @@ public class LinkedList {
     public String toString() {
         StringBuilder sb = new StringBuilder("");
         Link current = first;
-
+        int index = 0;
         while (current != null) {
-            sb.append(current.toString()).append("\n");
+            sb.append(index).append(":").append(current.toString()).append("\n");
             current = current.next;
+            index++;
         }
         return sb.toString();
     }
@@ -174,6 +197,7 @@ public class LinkedList {
         System.out.println("Length is " + list.length);
 
         Link gone = list.delete(1);
+        System.out.println("is empty is " + list.isEmpty() + " first is " + list.first);
         if (gone != null) {
             System.out.println("Item deleted is " + gone);
         } else {
@@ -181,6 +205,7 @@ public class LinkedList {
         }
 
         gone = list.delete(1);
+
         if (gone != null) {
             System.out.println("Item deleted is " + gone);
         } else {
@@ -188,6 +213,7 @@ public class LinkedList {
         }
 
         gone = list.delete(0);
+;
         if (gone != null) {
             System.out.println("Item deleted is " + gone);
         } else {
@@ -195,6 +221,7 @@ public class LinkedList {
         }
 
         gone = list.delete(2);
+
         if (gone != null) {
             System.out.println("Item deleted is " + gone);
         } else {
@@ -208,6 +235,7 @@ public class LinkedList {
         System.out.println("Length is " + list.length);
 
         gone = list.remove();
+
         if (gone != null) {
             System.out.println("Item deleted is " + gone);
         } else {
@@ -215,6 +243,7 @@ public class LinkedList {
         }
 
         gone = list.remove();
+
         if (gone != null) {
             System.out.println("Item deleted is " + gone);
         } else {
@@ -222,6 +251,7 @@ public class LinkedList {
         }
 
         gone = list.remove();
+
         if (gone != null) {
             System.out.println("Item deleted is " + gone);
         } else {
@@ -229,11 +259,20 @@ public class LinkedList {
         }
 
         gone = list.remove();
+
         if (gone != null) {
             System.out.println("Item deleted is " + gone);
         } else {
             System.out.println("Null value on delete");
         }
 
+        System.out.println("Testing append...");
+
+        System.out.println("length=" + list.length);
+        list.append(new Friend("Tom", 5));
+        list.append(new Friend("Mary", 7));
+        list.append(new Friend("Steve", 6));
+        System.out.println(list);
+        System.out.println("Length is " + list.length);
     }
 }

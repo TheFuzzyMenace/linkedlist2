@@ -3,7 +3,7 @@ package linkedlist2;
 /**
  * Implements a doubly linked list.
  *
- * @author 55jphillip
+ * @author Jeremiah E. Zellers
  */
 public class LinkedList {
 

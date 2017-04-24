@@ -3,7 +3,7 @@ package linkedlist2;
 /**
  * Represents a single link object.
  *
- * @author 55jphillip
+ * @author Jeremiah E. Zellers
  */
 public class Link {
 

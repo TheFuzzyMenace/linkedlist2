@@ -7,7 +7,7 @@ import java.util.Scanner;
  * program in the book "Murach's Java Programming" by Joel Murach. Modifications
  * include getLine and getLong methods and inclusive ranges.
  *
- * @author John Phillips
+ * @author Jeremiah E. Zellers
  */
 public class Validator {
 

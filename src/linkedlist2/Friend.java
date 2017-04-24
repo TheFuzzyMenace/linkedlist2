@@ -2,7 +2,7 @@ package linkedlist2;
 
 /**
  *
- * @author 55jphillip
+ * @author Jeremiah E. Zellers
  */
 public class Friend implements Comparable<Friend> {
 

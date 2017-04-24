@@ -9,7 +9,7 @@ import utility.Validator;
 /**
  * A black book rating app.
  *
- * @author 55jphillip
+ * @author Jeremiah E. Zellers
  */
 public class BBApp {
 
@@ -68,7 +68,7 @@ public class BBApp {
     }
 
     public void menu() {
-        System.out.println("\nJohn's Black Book");
+        System.out.println("\nJeremiah's Black Book");
         System.out.println("Add - add a new friend");
         System.out.println("Remove - remove a friend");
         System.out.println("List - display list of friends");
